@@ -215,7 +215,7 @@ export function Home({ request }: RequestInfo) {
   const url = new URL(request.url)
   return (
     <div>
-      <span style={{fontSize: '2em' }}>💃💃💃 </span>client-side nav<br />
+      <span style={{fontSize: '2em' }}>💃 </span>client-side nav<br />
       <a href={url.origin + url.pathname} style={{ textUnderlineOffset: 8 }}>{url.origin}{url.pathname}</a>{url.search}{url.hash}
       <h1><a href="/">TEST BRANCH PREVIEW URLS</a></h1>
       Attempt to build a repro for jldec's{' '}
