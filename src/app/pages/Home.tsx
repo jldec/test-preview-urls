@@ -214,14 +214,25 @@ const data = [
 export function Home({ request }: RequestInfo) {
   return (
     <div>
+      <b>request.url:</b> {request.url}
       <h1>
         <a href="/">Home</a>
       </h1>
       <p>
         Attempt to build a repro for jldec's{' '}
-        <a href="https://github.com/fmctraining/fmc-website/issues/29">safari issue</a>
+        <a href="https://github.com/fmctraining/fmc-website/issues/29">iOS Safari issue</a>
+        <br />
+        Github: <a href="https://github.com/jldec/safari-issue-29">https://github.com/jldec/safari-issue-29</a>
+        <br />
+        Deployed at <a href="https://safari-issue-29.jldec.workers.dev">https://safari-issue-29.jldec.workers.dev</a>
       </p>
-      <h3>{request.url}</h3>
+      <h3>To reproduce:</h3>
+      <ol>
+        <li>Navigate to <a href="https://safari-issue-29.jldec.workers.dev">https://safari-issue-29.jldec.workers.dev</a> in Safari</li>
+        <li>Close safari using the app switcher</li>
+        <li>Wait 10 minutes</li>
+        <li>Restart safari - page should re-open on the same URL. Observe flash + blank page.</li>
+      </ol>
       {data.map((classData, index) => (
         <div key={index}>
           <h2>{classData.href ? <a href={classData.href}>{classData.name}</a> : classData.name}</h2>
