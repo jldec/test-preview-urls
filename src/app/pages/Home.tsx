@@ -212,23 +212,19 @@ const data = [
 ]
 
 export function Home({ request }: RequestInfo) {
+  const url = new URL(request.url)
   return (
     <div>
-      <b>request.url:</b> {request.url}
-      <h1>
-        <a href="/">Home</a>
-      </h1>
-      <p>
-        Attempt to build a repro for jldec's{' '}
-        <a href="https://github.com/fmctraining/fmc-website/issues/29">iOS Safari issue</a>
-        <br />
-        Github: <a href="https://github.com/jldec/safari-issue-29">https://github.com/jldec/safari-issue-29</a>
-        <br />
-        Deployed at <a href="https://safari-issue-29.jldec.workers.dev">https://safari-issue-29.jldec.workers.dev</a>
-      </p>
+      <b>request.url:</b>{' '}<a href={url.origin + url.pathname} style={{ textUnderlineOffset: 8 }}>{url.origin}{url.pathname}</a>{url.search}{url.hash}
+      <h1><a href="/">Home</a></h1>
+      Attempt to build a repro for jldec's{' '}
+      <a href="https://github.com/fmctraining/fmc-website/issues/29">iOS Safari issue</a><br />
+      Github: <a href="https://github.com/jldec/safari-issue-29">https://github.com/jldec/safari-issue-29</a><br />
+      Deployed at <a href="https://safari-issue-29.jldec.workers.dev">https://safari-issue-29.jldec.workers.dev</a><br />
+      Client-side nav at <a href="https://client-side-nav-safari-issue-29.jldec.workers.dev">https://client-side-nav-safari-issue-29.jldec.workers.dev</a>
       <h3>To reproduce:</h3>
       <ol>
-        <li>Navigate to <a href="https://safari-issue-29.jldec.workers.dev">https://safari-issue-29.jldec.workers.dev</a> in Safari</li>
+        <li>Navigate to <a href="https://safari-issue-29.jldec.workers.dev">https://safari-issue-29.jldec.workers.dev</a>{' '}in Safari</li>
         <li>Close safari using the app switcher</li>
         <li>Wait 10 minutes</li>
         <li>Restart safari - page should re-open on the same URL. Observe flash + blank page.</li>
