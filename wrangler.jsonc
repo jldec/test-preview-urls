@@ -3,7 +3,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
 
   // Name of your worker
-  "name": "safari-issue-29",
+  "name": "test-preview-url",
 
   // Entry point for your worker
   "main": "src/worker.tsx",
