@@ -215,7 +215,8 @@ export function Home({ request }: RequestInfo) {
   const url = new URL(request.url)
   return (
     <div>
-      <b>request.url:</b>{' '}<a href={url.origin + url.pathname} style={{ textUnderlineOffset: 8 }}>{url.origin}{url.pathname}</a>{url.search}{url.hash}
+      <span style={{fontSize: '2em' }}>🕺🕺 </span>client-side nav<br />
+      <a href={url.origin + url.pathname} style={{ textUnderlineOffset: 8 }}>{url.origin}{url.pathname}</a>{url.search}{url.hash}
       <h1><a href="/">Home</a></h1>
       Attempt to build a repro for jldec's{' '}
       <a href="https://github.com/fmctraining/fmc-website/issues/29">iOS Safari issue</a><br />
@@ -229,6 +230,7 @@ export function Home({ request }: RequestInfo) {
         <li>Wait 10 minutes</li>
         <li>Restart safari - page should re-open on the same URL. Observe flash + blank page.</li>
       </ol>
+      <ClientComponentTest /> <span style={{fontSize: '2em' }}>👈 </span><i>Client component</i>
       {data.map((classData, index) => (
         <div key={index}>
           <h2>{classData.href ? <a href={classData.href}>{classData.name}</a> : classData.name}</h2>
@@ -241,7 +243,6 @@ export function Home({ request }: RequestInfo) {
           </ul>
         </div>
       ))}
-      <ClientComponentTest />
     </div>
   )
 }
